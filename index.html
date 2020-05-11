@@ -71,6 +71,16 @@
       L.control.layers({'Basemap':baselayer},{'index':mytile}).addTo(map);
     })
 
+    
+    var bobatea = null;
+      bobatea= L.geoJson.ajax("./tiles/index/chicago-parks.geojson", {
+    onEachFeature: function (feature, layer) {
+          layer.bindPopup("<b>Park Name: </b>"+
+            feature.properties.name+
+            "<br/><b>Any games: </b>"+feature.properties.games+
+            "<br/><b>Any sweets: </b>"+feature.properties.sweets)
+        }}).addTo(map);
+    
   </script>
 </head>
 <body>
