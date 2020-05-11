@@ -71,25 +71,13 @@
       L.control.layers({'Basemap':baselayer},{'index':mytile}).addTo(map);
     
       var park = null;
-      park= L.geoJson.ajax("./tiles/index/chicago-parks.geojson").addTo(map);
-      
-    map.on('click', function(e) {
-  var features = map.queryRenderedFeatures(e.point, {
-    layers: ['Chicago Parks'] // replace this with the name of the layer
-  });
-
-  if (!features.length) {
-    return;
-  }
-
-  var feature = features[0];
-
-  var popup = new mapboxgl.Popup({ offset: [0, -15] })
-    .setLngLat(feature.geometry.coordinates)
-    .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
-    .addTo(map);
-});
-    })
+      park= L.geoJson.ajax("./tiles/index/chicago-parks.geojson")，{
+    onEachFeature: function (feature, layer) {
+          layer.bindPopup("<b>Store Name: </b>"+
+            feature.properties.name+
+            "<br/><b>Any games: </b>"+feature.properties.games+
+            "<br/><b>Any sweets: </b>"+feature.properties.sweets)
+        }}).addTo(map);
   </script>
 </head>
 <body>
