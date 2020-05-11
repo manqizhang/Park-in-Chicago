@@ -72,7 +72,11 @@
       }).addTo(map);
 
       L.control.layers({'Basemap':baselayer},{'index':mytile}).addTo(map);
-      L.geoJson.ajax('./tiles/index/chicago-parks.geojson').addTo(map);
+      L.geoJson.ajax('./tiles/index/chicago-parks.geojson', {
+      onEachFeature: function (feature, layer) {
+          layer.bindPopup("<b>Park Name: </b>"+
+            feature.properties.name
+        }}).addTo(map);
     })
 
     
