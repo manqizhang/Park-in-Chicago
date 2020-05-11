@@ -72,14 +72,20 @@
     })
 
     
-    var bobatea = null;
-      bobatea= L.geoJson.ajax("./tiles/index/chicago-parks.geojson", {
-    onEachFeature: function (feature, layer) {
-          layer.bindPopup("<b>Park Name: </b>"+
-            feature.properties.name+
-            "<br/><b>Any games: </b>"+feature.properties.games+
-            "<br/><b>Any sweets: </b>"+feature.properties.sweets)
-        }}).addTo(map);
+var geojsonFeature = {
+    "type": "Feature",
+    "properties": {
+        "name": "Coors Field",
+        "amenity": "Baseball Stadium",
+        "popupContent": "This is where the Rockies play!"
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [-104.99404, 39.75621]
+    }
+};
+    L.geoJSON(geojsonFeature).addTo(map);
+    
     
   </script>
 </head>
