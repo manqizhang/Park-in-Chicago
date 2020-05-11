@@ -71,13 +71,7 @@
       L.control.layers({'Basemap':baselayer},{'index':mytile}).addTo(map);
     
       var park = null;
-      park= L.geoJson.ajax("./tiles/index/chicago-parks.geojson"，{
-    onEachFeature: function (feature, layer) {
-          layer.bindPopup("<b>Store Name: </b>"+
-            feature.properties.name+
-            "<br/><b>Any games: </b>"+feature.properties.games+
-            "<br/><b>Any sweets: </b>"+feature.properties.sweets)
-        }}).addTo(map);
+      park= L.geoJson.ajax("./tiles/index/chicago-parks.geojson")
   </script>
 </head>
 <body>
