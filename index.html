@@ -69,6 +69,9 @@
       }).addTo(map);
 
       L.control.layers({'Basemap':baselayer},{'index':mytile}).addTo(map);
+    
+      var park = null;
+      park= L.geoJson.ajax(".tiles/index/chicago-parks.geojson").addTo(map);
       
     map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
