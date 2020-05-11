@@ -1,1 +1,2 @@
 # Park-in-Chicago
+This tiles mainly includes nine different Chicago Parks with each feature propertites and coordinates. And each park has been symboled as blue marker sign on the map. Hence, the geographic area focues on the Illinois state. The zoom level I chose to export is 0 to 10 because when I used the inspect tool on the map, the code of zoom max shows the 10 as its maximum. But it does not indicate any minimum level, I left it as default. Except the marker, I also add the pop up on the map to describe each park's characteristics.
